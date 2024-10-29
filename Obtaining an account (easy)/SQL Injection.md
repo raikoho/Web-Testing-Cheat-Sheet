@@ -57,3 +57,6 @@ sqlmap -u "http://example.com/vulnerable.php?id=1" --timeout=10 //Sets a timeout
 
 **TrackingId** in Cookie Header;
 
+## Manual Testing:
+
+https://portswigger.net/web-security/sql-injection/cheat-sheet
