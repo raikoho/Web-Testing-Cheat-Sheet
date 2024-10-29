@@ -1,8 +1,16 @@
 ## Cross-site request forgery
 
-SameSite=Strict
-SameSite=Lux
-SameSite=None
+## CSRF vulnerabilities work when:
+
+- User is Authenticated;
+- SameSite=None - allows them to be sent on cross-site requests;
+
+### CSRF does not work when:
+
+- CSRF Tokens are Present;
+- Same-Site Cookies are Enabled: With SameSite cookie policy (e.g., SameSite=Lax or Strict), cookies are only sent on requests originating from the same domain;
+- Referrer Check: Some sites check the Referer header to confirm requests are from their own pages;
+- Origin header (sometimes) - If the site rejects requests without them, it likely relies on header-based protection.
 
 ### Standard GET CSRF:
 ```
