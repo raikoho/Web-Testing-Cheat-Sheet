@@ -86,3 +86,31 @@
 </body>
 </html>
 ```
+## ByPass Restrictions:
+
+### CSRF:
+
+1) Just delete **csrf** parameter from request.
+2) Make a note of the value of the **CSRF** token, then drop the request this is a single-use, so you'll need to include a fresh one.
+3) CSRF where token is tied to non-session cookie:
+   
+   Changing the session cookie logs you out; and
+   Changing the csrfKey cookie merely results in the CSRF token being rejected.
+
+   https://portswigger.net/web-security/csrf/bypassing-token-validation/lab-token-tied-to-non-session-cookie
+
+4) CSRF where token is duplicated in cookie (and if the search term gets reflected in the Set-Cookie header) :
+
+  Create a URL that uses this vulnerability to inject a fake csrf cookie into the victim's browser:
+  ```
+  /?search=test%0d%0aSet-Cookie:%20csrf=fake%3b%20SameSite=None
+  ```
+  
+  Remove the auto-submit <script> block from **Standard CSRF** and instead add the following code to inject the cookie and submit the form:
+  ```
+  <img src="https://YOUR-LAB-ID.web-security-academy.net/?search=test%0d%0aSet-Cookie:%20csrf=fake%3b%20SameSite=None" onerror="document.forms[0].submit();"/>
+  ```
+
+  https://portswigger.net/web-security/csrf/bypassing-token-validation/lab-token-duplicated-in-cookie
+
+### SameSite:
