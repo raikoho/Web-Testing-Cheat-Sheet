@@ -53,6 +53,7 @@ sqlmap -u "http://example.com/vulnerable.php?id=1" --timeout=10 //Sets a timeout
 ```
 ## Where to test:
 
-**Id** in Post number
-**TrackingId** in Cookie Header
+**Id** in Post number;
+
+**TrackingId** in Cookie Header;
 
