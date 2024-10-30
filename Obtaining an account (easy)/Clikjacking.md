@@ -16,10 +16,11 @@
   
 ### Example:
 
-``
+```
 X-Frame-Options: DENY
+
 Content-Security-Policy: frame-ancestors 'none';
-``
+```
 
 ## Basic:
 ```
