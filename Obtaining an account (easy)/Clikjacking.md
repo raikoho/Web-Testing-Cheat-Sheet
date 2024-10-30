@@ -89,9 +89,9 @@ src="YOUR-LAB-ID.web-security-academy.net/my-account?email=hacker@attacker-websi
 src="YOUR-LAB-ID.web-security-academy.net/my-account?email=hacker@attacker-website.com"></iframe>
 ```
 
-As frame busters are JavaScript then the browser's security settings may prevent their operation or indeed the browser might not even support JavaScript. 
+**Frame Busters** are JavaScript that can block clickjacking. 
 An effective attacker workaround against frame busters is to use the HTML5 iframe sandbox attribute. 
-When this is set with the allow-forms or allow-scripts values and the allow-top-navigation value is omitted then the frame buster script can be neutralized as the iframe cannot check whether or not it is the top window:
+Use the **allow-forms** or **allow-scripts** values and the **allow-top-navigation**:
 `<iframe id="victim_website" src="https://victim-website.com" sandbox="allow-forms"></iframe>`
 
 ## Exploiting clickjacking vulnerability to trigger DOM-based XSS
