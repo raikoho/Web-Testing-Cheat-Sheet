@@ -1,8 +1,8 @@
 ## Cross-origin resource sharing
 
 CORS works, if:
-**Access-Control-Allow-Credentials** header suggesting that it may support CORS.
-**Origin: https://example.com** is reflected in the Access-Control-Allow-Origin header.
+**Access-Control-Allow-Credentials: true** header suggesting that it may support CORS.
+**Origin: https://example.com** is reflected in the Access-Control-Allow-Origin header in response.
 
 ## Standard payload:
 ```
