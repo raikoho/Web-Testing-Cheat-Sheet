@@ -1,5 +1,26 @@
 # Clickjacking
 
+## Will not work if can se these **headers**:
+
+### X-Frame-Options:
+
+		**DENY**: Prevents the site from being embedded in any iframe.
+		**SAMEORIGIN**: Allows embedding only if the parent page is from the same origin.
+		**ALLOW-FROM <URL>**: (Less common, partially deprecated) Allows embedding only from a specific origin.
+
+### Content-Security-Policy (CSP):
+
+		**frame-ancestors 'none'**: Completely blocks framing of the page.
+		**frame-ancestors 'self'**: Only allows embedding from the same origin.
+		**frame-ancestors <URL>**: Allows embedding only from specified sources.
+  
+### Example:
+
+``
+X-Frame-Options: DENY
+Content-Security-Policy: frame-ancestors 'none';
+``
+
 ## Basic:
 ```
 <style>
