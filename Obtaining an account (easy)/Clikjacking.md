@@ -155,3 +155,5 @@ If you're using Burp Suite Professional, you can use Burp Scanner to test for cl
     When the scan has finished, go to the Dashboard tab and select the scan from the Tasks list. In the main panel, go to the Issues tab to identify any 	Frameable response issues that Scanner found. These indicate that your target web page is vulnerable to clickjacking attacks.
 
 https://portswigger.net/burp/documentation/desktop/testing-workflow/testing-for-clickjacking
+
+Burp Clickbandit: https://portswigger.net/burp/documentation/desktop/tools/clickbandit
