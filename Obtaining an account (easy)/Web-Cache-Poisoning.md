@@ -43,9 +43,9 @@ X-Host: attacker.com
 Origin:x
 ```
 ## Web cache poisoning via an unkeyed query parameter
-```
+`
 /?utm_content=123'/><script>alert(1)</script>
-```
+`
 ## Parameter cloaking
 ``
 /js/geolocate.js?callback=setCountryCookie&utm_content=foo;callback=alert(1)
