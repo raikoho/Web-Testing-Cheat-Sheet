@@ -145,3 +145,13 @@ src="YOUR-LAB-ID.web-security-academy.net/feedback?name=<img src=1 onerror=print
 <div class="secondClick">Test me next</div>
 <iframe src="YOUR-LAB-ID.web-security-academy.net/my-account"></iframe>
 ```
+
+## Scanning for clickjacking vulnerabilities
+
+If you're using Burp Suite Professional, you can use Burp Scanner to test for clickjacking vulnerabilities:
+
+    Open your target web page in Burp's browser. In this example, we're going to use the My account page of our fictional blog.
+    In Proxy > HTTP history, right-click the requests you want to test, then click Do active scan.
+    When the scan has finished, go to the Dashboard tab and select the scan from the Tasks list. In the main panel, go to the Issues tab to identify any 	Frameable response issues that Scanner found. These indicate that your target web page is vulnerable to clickjacking attacks.
+
+    https://portswigger.net/burp/documentation/desktop/testing-workflow/testing-for-clickjacking
