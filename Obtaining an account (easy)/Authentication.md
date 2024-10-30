@@ -1,8 +1,8 @@
 # Authentication
 
 ## Username enumeration via different responses
-  1) Notice that other responses contain the message Invalid username, but this response says Incorrect password. Make a note of the username.
-  2) Bruteforce password: username=identified-user&password=§invalid-password§ ;
+  1) Notice that other responses contain the message `Invalid username`, but this response says Incorrect password. Make a note of the username.
+  2) Bruteforce password: `username=identified-user&password=§invalid-password§` ;
 
 ## 2FA code simple bypass
   When prompted for the verification code, manually change the URL to navigate to /my-account.
@@ -12,12 +12,12 @@
   2) Change the username parameter to carlos. Set the new password to whatever you want and send the request.
 
 ## Username enumeration via subtly different responses
-  Grep - Extract string for column to check: "Invalid username or password." Or maybe it can be "Invalid username or pass" after username becomes correct.
+  Grep - Extract string for column to check: `"Invalid username or password."` Or maybe it can be `"Invalid username or pass"` after username becomes correct.
 
 ## Username enumeration via response timing
   When you enter a valid username (your own), the response time is increased depending on the length of the password you entered. 
   1) Set the password to a very long string of characters (about 100 characters should do it).
-  2) Add X-Forwarded-For: $1$ - and brute force it to 200 or more. - it will spoof your IP, so its ByPass.
+  2) Add `X-Forwarded-For: $1$` - and brute force it to 200 or more. - it will spoof your IP, so its ByPass.
 
 ## Broken brute-force protection, IP block
   Brute Force with this order (your IP is temporarily blocked if you submit 3 incorrect logins in a row): 
