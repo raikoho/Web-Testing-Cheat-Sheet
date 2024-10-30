@@ -123,9 +123,9 @@ Referer: https://arbitrary-incorrect-domain.net?YOUR-LAB-ID.web-security-academy
 history.pushState("", "", "/?YOUR-LAB-ID.web-security-academy.net")
 
 Referrer-Policy: unsafe-url  //in head section
+```
 
 ### SameSite (if does not contains unpredictible tokens):
-```
 
 #### 1) SameSite=Lax:
 
