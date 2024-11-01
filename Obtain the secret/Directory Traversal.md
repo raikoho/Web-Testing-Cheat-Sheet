@@ -1,3 +1,7 @@
+## Use Burp Intruder and its worlist:
+
+![sd](https://github.com/user-attachments/assets/deb9b141-a5d1-45f9-ae02-1a572947ca1b)
+
 ## File path traversal, traversal sequences blocked with absolute path bypass
 
 ```
