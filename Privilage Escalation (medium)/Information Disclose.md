@@ -29,7 +29,7 @@
 9) Under Auto-modified request, notice that Burp has added the X-Custom-IP-Authorization header to the modified request.
 10) Click OK. Burp Proxy now adds the X-Custom-IP-Authorization header to every request you send.
 11) Browse to the home page. Notice that you now have access to the admin panel, where you can delete carlos.
-12) 
+
 ![trace-info](https://github.com/user-attachments/assets/065943f9-324f-49db-a4bf-35affef7cf47)
 
 
