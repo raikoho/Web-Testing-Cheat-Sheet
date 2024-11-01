@@ -1,4 +1,5 @@
 # SSRF mostly with "Check stock"
+In this lab they state the admin interface is at `http://192.168.0.12:8080/admin` but in the Burp exam use the `localhost:6566`.
 
 ## Basic SSRF against the local server
 
