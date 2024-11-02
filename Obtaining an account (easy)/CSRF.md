@@ -90,7 +90,7 @@
 
 ### CSRF:
 
-1) Just delete **csrf** parameter from request.
+1) Just delete **csrf** parameter from request and change method to GET.
 2) Make a note of the value of the **CSRF** token, then drop the request this is a single-use, so you'll need to include a fresh one.
 3) CSRF where token is tied to non-session cookie:
    
