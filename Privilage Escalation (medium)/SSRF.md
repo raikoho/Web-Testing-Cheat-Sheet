@@ -31,6 +31,15 @@ stockApi parameter to http://localhost/admin
 2) `http://127.1/admin`.
 3) If still not working, try to encode "a" with `%2561`.
 
+## SSRF via flawed request parsing
+
+```
+GET https://YOUR-LAB-ID.web-security-academy.net/
+Host: BURP-COLLABORATOR-SUBDOMAIN
+```
+Notice that when you do this, modifying the Host header no longer causes your request to be blocked.
+Use the Host header to scan the IP range 192.168.0.0/24.
+
 ## SSRF with filter bypass via open redirection vulnerability
 
 1) `stockApi` parameter and observe that it isn't possible to make the server issue the request directly to a different host.
