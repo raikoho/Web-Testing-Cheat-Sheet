@@ -1,3 +1,8 @@
+# WHERE to USE SSRF?
+
+`Referer`, `Host`, `X-Forwarded-For`, `X-Forwarded-Host`, `X-Original-URL`, `X-Rewrite-URL`, 
+`<img src="http://example.com/image.jpg">`, all inputs, parameters.
+
 ## SECRET PARAMETER:
 ```
 GET /fetch?url=http://example.com/admin
