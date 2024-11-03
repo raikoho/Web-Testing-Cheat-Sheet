@@ -39,3 +39,22 @@
 2) Download a copy of this entire directory: `wget -r https://YOUR-LAB-ID.web-security-academy.net/.git/`.
 3) Explore the downloaded directory using your local Git installation. Notice that there is a commit with the message "Remove admin password from config".
 4) Look closer at the diff for the changed `admin.conf` file. Notice that the commit replaced the hard-coded admin password with variable **ADMIN_PASSWORD** instead.
+
+With git full instruction:
+```
+cd /path/to/YOUR-LAB-ID.web-security-academy.net
+
+git status //If you see output indicating a valid repository, you can proceed.
+
+git log --oneline //List all the commits in the repository to identify the one with the message mentioning the password change
+
+git show aXcG34sd //Look for the section mentioning admin.conf
+```
+if not work, try to make you as owner of downloaded git (and login as sudo):
+
+```
+git config --global --add safe.directory /home/kali/scripts/0a1d00b803cd3ad9812fd04a007100dc.web-security-academy.net
+```
+
+
+![image](https://github.com/user-attachments/assets/23be92ad-353f-467f-acd5-d604e8c716de)
