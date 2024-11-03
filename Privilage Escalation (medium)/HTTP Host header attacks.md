@@ -60,3 +60,12 @@
    Change the Host header back to `YOUR-LAB-ID.h1-web-security-academy.net`.
 
 4) Send `group in sequence (single connection)`. Change the Connection header to keep-alive.
+
+## Bypasses:
+```
+localhost
+Localhost
+LocalHost
+lOcAlhOsT
+LOcalHOSt
+```
