@@ -21,13 +21,6 @@ and u will see this hidden admin, even it was 404 before. See: `Host validation 
 2) Notice that /admin can be accessed by local users..
 3) Change the Host header to localhost and send the request.
 
-
-## Host header authentication bypass
-
-1) Go to the /robots.txt and observe that there is an admin panel at /admin.
-2) Notice that /admin can be accessed by local users..
-3) Change the Host header to localhost and send the request.
-
 ## Web cache poisoning via ambiguous requests (x-Cache-hit)
 
 1) Exploit server -> and create a file at `/resources/js/tracking.js` containing the payload `alert(document.cookie)`.
