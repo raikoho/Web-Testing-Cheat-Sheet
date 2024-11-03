@@ -5,7 +5,7 @@ GET /admin HTTP/1.1
 Host: 192.168.0.1
 ```
 
-and u will see this hidden admin, even it was 404 before.
+and u will see this hidden admin, even it was 404 before. See: `Host validation bypass via connection state attack` below to view full lab.
 
 ## Basic password reset poisoning
 
