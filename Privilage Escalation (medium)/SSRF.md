@@ -1,4 +1,9 @@
-# SSRF mostly with "Check stock"
+## SECRET PARAMETER:
+```
+GET /fetch?url=http://example.com/admin
+```
+
+## SSRF mostly with "Check stock"
 In this lab they state the admin interface is at `http://192.168.0.12:8080/admin` but in the Burp exam use the `localhost:6566`.
 
 ## Basic SSRF against the local server
@@ -27,3 +32,11 @@ stockApi parameter to http://localhost/admin
 2) Click "next product" and observe that the path parameter is placed into the Location header of a redirection response, resulting in an open redirection.
 3) Create URL `/product/nextProduct?path=http://192.168.0.12:8080/admin` and feed it to the `stockApi` parameter.
 4) Delete user `/product/nextProduct?path=http://192.168.0.12:8080/admin/delete?username=carlos`.
+
+# ByPasses:
+
+## Bypassing filters by obfuscating URLs or using IP addresses in different formats (eg decimal, hexadecimal).
+
+```
+http://2130706433/admin
+```
