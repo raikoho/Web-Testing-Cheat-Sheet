@@ -1,3 +1,12 @@
+## If /admin not found, try:
+
+```
+GET /admin HTTP/1.1
+Host: 192.168.0.1
+```
+
+and u will see this hidden admin, even it was 404 before.
+
 ## Basic password reset poisoning
 
 1) Investigate (do) full "Forgot your password?" functionality to your own account.
