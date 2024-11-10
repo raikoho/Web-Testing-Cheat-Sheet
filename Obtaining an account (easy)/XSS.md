@@ -2,6 +2,8 @@
 
 ![XSS-variants](https://github.com/user-attachments/assets/0f908703-6b48-4424-acb2-7487e776765d)
 
+![image](https://github.com/user-attachments/assets/ac158e4f-1700-4a7a-bdff-35b2935ed078)
+
 ### Basics:
 ```
 <§§>                                 --// https://portswigger.net/web-security/cross-site-scripting/cheat-sheet
